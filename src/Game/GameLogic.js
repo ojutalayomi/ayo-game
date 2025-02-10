@@ -1,16 +1,10 @@
-// export interface AyoGame_i { 
-//   makeMove: (pitIndex: number) => boolean,
-//   getState: () => void
-// }
-
-import { sleep } from "../lib/utils";
-
 export class AyoGame {
   constructor() {
     this.board = Array(12).fill(4)
     this.scores = [0, 0];
-    this.currentPlayer = 0;
+    this.currentPlayer = 1;
     this.gameOver = false;
+    this.currentRoom = null;
     // console.log(this.board)
   }
 
@@ -44,11 +38,11 @@ export class AyoGame {
     // Sow seeds
     for (let i = 0; i < seeds; i++) {
         currentPit = this.getNextPit(currentPit);
-        // console.log(currentPit,52)
+        this.currentRoom = currentPit
+        console.log(currentPit,52)
         this.board[currentPit]++;
-        // console.log(this.board)
+        console.log(this.board)
         sownPits.push(currentPit);
-        // await sleep()
     }
 
     // Capture seeds
@@ -85,6 +79,7 @@ export class AyoGame {
       scores: this.scores,
       currentPlayer: this.currentPlayer,
       gameOver: this.gameOver,
+      currentRoom: this.currentRoom
     };
   }
 }

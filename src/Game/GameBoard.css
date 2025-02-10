@@ -1,3 +1,7 @@
+.flex {
+    display: flex;
+}
+
 .ayo-container {
     display: flex;
     flex-direction: column;
@@ -8,7 +12,7 @@
 
 .game-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     max-width: 800px;
     margin-bottom: 20px;
@@ -37,6 +41,24 @@
     padding: 1.5rem;
     border-radius: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 702px) {
+    .game-board {
+        transform: scale(0.7);
+    }
+}
+
+@media (max-width: 500px) {
+    .game-board {
+        transform: scale(0.6);
+    }
+}
+
+@media (max-width: 425px) {
+    .game-board {
+        transform: scale(0.5);
+    }
 }
 
 .score-display {
@@ -168,7 +190,7 @@
 .modal-content {
     background: white;
     padding: 24px;
-    border-radius: 8px;
+    border-radius: 1.5rem;
     max-width: 500px;
     width: 90%;
 }
@@ -182,6 +204,27 @@
 .modal-body {
     margin-bottom: 24px;
     line-height: 1.5;
+}
+
+.modal .options {
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    .flex {
+        align-items: center;
+        background-color: #FFEFD5;
+        border-radius: 1.5rem;
+        box-shadow: 1px 0px 5px 0px #000000b5;
+        gap: .5rem;
+        justify-content: center;
+        padding: 1.5rem;
+    }
+    .flex:hover {
+        background: green;
+        color: white;
+    }
 }
 
 .modal-footer {
