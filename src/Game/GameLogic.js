@@ -1,3 +1,9 @@
+async function animateSeed(currentPit, board, setCurrentRoom) {
+  setCurrentRoom(currentPit);
+  board[currentPit]++;
+  await new Promise(resolve => setTimeout(resolve, 200)); // 200ms delay per seed
+}
+
 export class AyoGame {
   constructor() {
     this.board = Array(12).fill(4)
@@ -35,13 +41,12 @@ export class AyoGame {
     let currentPit = pit;
     const sownPits = [];
 
-    // Sow seeds
+    // Sow seeds with animation
     for (let i = 0; i < seeds; i++) {
         currentPit = this.getNextPit(currentPit);
-        this.currentRoom = currentPit
-        console.log(currentPit,52)
-        this.board[currentPit]++;
-        console.log(this.board)
+        await animateSeed(currentPit, this.board, (pit) => {
+          this.currentRoom = pit;
+        });
         sownPits.push(currentPit);
     }
 

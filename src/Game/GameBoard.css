@@ -100,7 +100,7 @@
     background: #FFF8DC;
     position: relative;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease-in-out;
 }
 
 .pit.active {
@@ -135,6 +135,7 @@
     background: #8B4513;
     border-radius: 50%;
     transform: translate(-50%, -50%);
+    transition: all 0.5s ease-in-out;
 }
 
 .extra-seeds {
@@ -149,8 +150,9 @@
     font-size: 12px;
     font-weight: bold;
     transform: translateX(10px);
-    padding: .5rem;
+    padding: .75rem;
     height: 7px;
+    width: 7px;
 }
 
 .game-status {
@@ -189,7 +191,7 @@
 
 .modal-content {
     background: white;
-    padding: 24px;
+    padding: 1.5rem;
     border-radius: 1.5rem;
     max-width: 500px;
     width: 90%;
@@ -206,6 +208,23 @@
     line-height: 1.5;
 }
 
+.modal .section {
+    max-height: 40vh;
+    overflow: auto;
+    scrollbar-width: none;
+    box-shadow: 0px 0px 6px 0px #00000066;
+    border-radius: 1.5rem;
+    summary {
+        backdrop-filter: blur(.5rem);
+        padding: .5rem;
+        position: sticky;
+        top: 0;
+    }
+    section {
+        padding: 0 1rem;
+    }
+}
+
 .modal .options {
     cursor: pointer;
     justify-content: center;
@@ -214,7 +233,7 @@
     margin-top: 1.5rem;
     .flex {
         align-items: center;
-        background-color: #FFEFD5;
+        /* background-color: #FFEFD5; */
         border-radius: 1.5rem;
         box-shadow: 1px 0px 5px 0px #000000b5;
         gap: .5rem;

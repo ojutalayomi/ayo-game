@@ -24,12 +24,12 @@ const GameBoard = () => {
     const newGame = new AyoGame();
     Object.assign(newGame, JSON.parse(JSON.stringify(game)));
 
-    const move = await newGame.makeMove(pitIndex)
+    const move = await newGame.makeMove(pitIndex);
 
     if (move) {
       setGame(newGame);
     }
-    return move
+    return move;
   }, [game]);
 
   useEffect(() => {
@@ -144,7 +144,45 @@ const GameBoard = () => {
         <div className="start-game modal-content">
           <div className="modal-header">Welcome</div>
           <div className="modal-body">
-            Choose who you will like to play.
+            <section className="section">
+              <p>Ayo is a traditional two-player strategy board game from West Africa. It's played with a wooden box, seeds, and holes, and the goal is to capture all of your opponent's seeds.</p>
+              
+              <details>
+                <summary>How to play</summary>
+                <section>
+                  <p>
+                    Each player sits across from the other.<br/>
+                    Open the wooden box to reveal 12 holes, with 4 seeds in each hole.<br/>
+                    The first player picks up all the seeds from one of their holes and moves them counterclockwise.<br/>
+                    The opponent does the same, starting from their side.<br/>
+                    If a player lands in a hole with 3 or fewer seeds, they pick up those seeds and any seeds from previous holes.<br/>
+                    The player who captures the most seeds wins.
+                  </p>
+                </section>
+              </details>
+
+              <details>
+                <summary>Variations</summary>
+                <section>
+                  <p>
+                    Ayo is also known as Kalah in America.<br/>
+                    Ayo is a variant of Mancala.<br/>
+                    Ayo is also known as Asiko Isere, which means "game of the intellectuals".
+                  </p>
+                </section>
+              </details>
+
+              <details>
+                <summary>History</summary>
+                <section>
+                  <p>
+                    Ayo is believed to have originated in the 16th century BCE in the pyramid of Cheops.<br/>
+                    Before using a wooden box, people played Ayo by digging holes in the ground and placing stones in them.
+                  </p>
+                </section>
+              </details>
+            </section>
+            <p>Choose who you will like to play.</p>
             <div className="row options">
               <div className="flex flex-col one" onClick={() => handleMode('computer')}>
                 <Computer />
